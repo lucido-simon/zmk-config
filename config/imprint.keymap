@@ -27,14 +27,14 @@
 
         Numpad_Nav_Layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &kp N7  &kp N8  &kp N9  &trans            &trans  &kp HOME  &kp UP    &kp END    &trans  &trans
-&trans  &trans  &kp N4  &kp N5  &kp N6  &trans            &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &trans  &kp N1  &kp N2  &kp N3  &trans            &trans  &trans    &trans    &trans     &trans  &trans
-                &trans  &kp N0                                              &trans    &trans
-                                &trans  &trans  &trans    &trans  &trans    &trans
-                                &trans  &trans  &trans    &trans  &trans    &trans
+&trans  &trans  &trans           &trans           &trans           &trans            &trans  &trans    &trans    &trans     &trans  &trans
+&trans  &trans  &trans           &trans           &trans           &trans            &trans  &trans    &trans    &trans     &trans  &trans
+&trans  &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans            &trans  &kp HOME  &kp UP    &kp END    &trans  &trans
+&trans  &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans            &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
+&trans  &trans  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans            &trans  &trans    &trans    &trans     &trans  &trans
+                &trans           &kp KP_NUMBER_0                                                       &trans    &trans
+                                                  &trans           &trans  &trans    &trans  &trans    &trans
+                                                  &trans           &trans  &trans    &trans  &trans    &trans
             >;
         };
 
@@ -70,9 +70,9 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;,,
-        // activate layer 3 within 500ms of the trackball moving,,
+        // this gets it to the default installation orientation,,,,
+        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;,,,
+        // activate layer 3 within 500ms of the trackball moving,,,
         <&zip_temp_layer 3 500>;
 };
 
@@ -80,12 +80,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,,,
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,
+        // this gets it to the default installation orientation,,,,
+        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
