@@ -21,7 +21,7 @@
 &kp LS(Z)   &kp Z   &kp X   &kp C   &kp V     &kp B                  &kp N      &kp M   &kp COMMA      &kp DOT   &kp FSLH  &kp RSHFT
                     &trans  &trans                                                      &kp LBKT       &kp RBKT
                                     &kp RET   &kp DEL   &kp ESC      &kp GRAVE  &trans  &kp BACKSPACE
-                                    &kp LGUI  &kp LALT  &kp LCTRL    &mo 3      &mo 1   &kp SPACE
+                                    &kp LGUI  &kp LALT  &kp LCTRL    &mo 4      &mo 1   &kp SPACE
             >;
         };
 
@@ -63,6 +63,19 @@
                                       &trans     &trans  &trans    &trans  &trans  &trans
             >;
         };
+
+        MouseLayer {
+            bindings = <
+&trans  &trans  &trans     &trans     &trans     &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans            &trans  &trans  &trans  &trans  &trans  &trans
+                &trans     &trans                                                  &trans  &trans
+                                      &trans     &trans  &trans    &trans  &trans  &trans
+                                      &trans     &trans  &trans    &trans  &trans  &trans
+            >;
+        };
     };
 };
 
@@ -70,9 +83,9 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,,,,,
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;,,,,,,
-        // activate layer 3 within 500ms of the trackball moving,,,,,,
+        // this gets it to the default installation orientation,,,,,,,,
+        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,
         <&zip_temp_layer 3 500>;
 };
 
@@ -80,12 +93,12 @@
 
 &trackball_central_listener {
     input-processors =
-        // this gets it to the default installation orientation,,,,,,,
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,,,,,,,
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,
+        // this gets it to the default installation orientation,,,,,,,,
+        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
